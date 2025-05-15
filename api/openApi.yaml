@@ -1,0 +1,75 @@
+openapi: 3.0.3
+info:
+  title: Address GENERATOR Project - OpenAPI 3.0
+  description: |-
+    This is a server to retrieve user addresses 
+  contact:
+    email: apiteam@swagger.io
+  version: 0.0.1
+servers:
+  - url: http:localhost:8000/{version}
+    variables:
+      version:
+        default: v1
+tags:
+  - name: user
+    description: Everything related to Users
+paths:
+  /user/{id}/address:
+    get:
+      tags:
+        - user
+      summary: Finds User Address by Id
+      operationId: user.getAddress
+      parameters:
+        - name: id
+          in: path
+          description: user id
+          required: true
+          schema:
+            type: number
+      responses:
+        '200':
+          description: Successfully retrieved the user address record
+          content:
+            application/json:
+              schema:
+                type: object
+                required: 
+                  - userId
+                  - address
+                properties: 
+                  userId: 
+                    type: number
+                  address:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Address'          
+        '400':
+          description: Invalid status value
+components:
+  schemas:
+    Address:
+      type: object
+      required: 
+        - network
+        - coinSymbol
+        - address
+        - publicKey
+        - privateKey
+      properties:
+        network:
+          type: string
+          example: "Bitcoin"
+        coinSymbol:
+          type: string
+          example: "BTC"
+        address:
+          type: string
+          example: "1FfkAvE9Ar339d9PtJdYN5aPpb3mRuUkRr"
+        publicKey:
+          type: string
+          example: "02997070a4ff9370938b06301a8cb4700a65cad2343c46aaaf7532d34a8e864ee3"
+        privateKey:
+          type: string
+          example: "xprvA43ktnRWRW6sVg359f7ufrbeWJKFjy9r4x3YP9gXczveKrn1VBimgScjNMdY516ffcid8tviG3nKorg9Mn171qGgYRfzshdvbwkpus8bCxZ"

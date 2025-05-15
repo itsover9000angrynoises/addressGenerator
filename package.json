@@ -1,0 +1,31 @@
+{
+  "name": "addressGenerator",
+  "version": "1.0.0",
+  "description": "addressGenerator",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "jest"
+  },
+  "author": "Pranav Varadha Rajan",
+  "license": "ISC",
+  "dependencies": {
+    "bip32": "^4.0.0",
+    "bip39": "^3.1.0",
+    "bitcoinjs-lib": "^6.1.6",
+    "bitcore-lib": "^10.1.0",
+    "body-parser": "^1.20.2",
+    "ethereumjs-wallet": "^1.0.2",
+    "express": "^4.18.2",
+    "express-openapi-validator": "^5.2.0",
+    "http": "*",
+    "lodash": "^4.17.21",
+    "rc": "^1.2.8",
+    "simple-node-logger": "^21.8.12",
+    "tiny-secp256k1": "^2.2.3",
+    "web3": "^4.11.0"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0"
+  }
+}
